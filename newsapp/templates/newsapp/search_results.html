@@ -1,0 +1,29 @@
+{% extends 'newsapp/base.html' %}
+{% load static %}
+{% block content %}
+<h1 class="text-2xl font-bold mb-6">Results for “{{ query }}”</h1>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  {% for a in articles %}
+  <div class="bg-white/90 rounded-2xl overflow-hidden shadow hover:shadow-lg transition duration-200">
+    
+    {% if a.image %}
+      <img src="{{ a.image }}" alt="news image" loading="lazy" class="w-full h-48 object-cover">
+    {% else %}
+      <img src="https://via.placeholder.com/400x200?text=No+Image" alt="no image" class="w-full h-48 object-cover">
+    {% endif %}
+
+    <div class="p-4">
+      <h2 class="font-semibold text-lg mb-2">{{ a.title }}</h2>
+      <p class="text-sm text-gray-700 mb-3">{{ a.description }}</p>
+      <div class="flex justify-between items-center">
+        <a href="{{ a.url }}" target="_blank" class="text-indigo-700 font-medium hover:underline">Read More</a>
+        <small class="text-xs text-gray-600">{{ a.source }}</small>
+      </div>
+    </div>
+  </div>
+  {% empty %}
+    <p>No results found for this query.</p>
+  {% endfor %}
+</div>
+{% endblock %}

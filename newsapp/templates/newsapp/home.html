@@ -1,0 +1,57 @@
+{% extends 'newsapp/base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Hero poster section -->
+<div class="relative w-full h-64 mb-8 rounded-2xl overflow-hidden shadow-lg">
+  <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1350&q=80"
+       alt="News Poster" class="absolute w-full h-full object-cover">
+  <div class="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-white">
+    <h1 class="text-4xl font-bold mb-2">Welcome to InfoHub</h1>
+    <p class="text-lg">Stay updated with the latest headlines in English & Hindi</p>
+  </div>
+</div>
+
+<h2 class="text-3xl font-bold mb-4">Top stories</h2>
+
+<!-- News grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  {% for a in articles %}
+  <article class="bg-white/90 rounded-2xl overflow-hidden shadow hover:shadow-lg transition duration-200">
+    
+    {% if a.image %}
+      <img src="{{ a.image }}" alt="news image" loading="lazy" class="w-full h-48 object-cover">
+    {% else %}
+      <img src="https://via.placeholder.com/400x200?text=No+Image" alt="no image" class="w-full h-48 object-cover">
+    {% endif %}
+
+    <div class="p-4">
+      <h2 class="font-semibold text-lg mb-2">{{ a.title }}</h2>
+      <p class="text-sm text-gray-700 mb-3">{{ a.description }}</p>
+
+      <div class="flex justify-between items-center">
+        <a href="{{ a.url }}" target="_blank" class="text-indigo-700 font-medium hover:underline">Read</a>
+        <small class="text-xs text-gray-600">{{ a.source }} • {{ a.publishedAt }}</small>
+      </div>
+    </div>
+  </article>
+  {% empty %}
+  <p>No articles found for this language/provider. Try switching language or topic.</p>
+  {% endfor %}
+</div>
+
+<hr class="my-8"/>
+
+<!-- Recent history -->
+<h3 class="text-xl mb-3 font-semibold">Your recent visits</h3>
+<ul>
+  {% for h in recent_history %}
+    <li class="mb-2">
+      <a href="{{ h.url }}" target="_blank" class="text-blue-700 hover:underline">{{ h.title|default:h.query }}</a>
+      <small class="text-xs text-gray-600">({{ h.language }})</small>
+    </li>
+  {% empty %}
+    <li>No history yet — start searching!</li>
+  {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,220 @@
+/* ===========================================
+   INFOHUB — Custom CSS Enhancements
+   File: newsapp/static/newsapp/css/styles.css
+   =========================================== */
+
+/* Use a clean, modern sans-serif font for the whole app */
+body {
+  font-family: 'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: linear-gradient(to right, #dbeafe, #fce7f3, #e0f2fe);
+  color: #111827;
+  scroll-behavior: smooth;
+}
+
+/* Smooth transitions for hover effects */
+* {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Navbar enhancements */
+nav {
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 1rem;
+}
+
+/* Buttons */
+button, .btn {
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover, .btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* Form elements */
+input, select {
+  outline: none;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.1);
+  font-size: 0.95rem;
+  border-radius: 0.5rem;
+  padding: 0.4rem 0.6rem;
+}
+
+/* Headings */
+h1, h2, h3, h4 {
+  color: #1e293b;
+}
+
+/* =============================
+   News Cards
+   ============================= */
+article {
+  border-radius: 1.25rem;
+  background-color: rgba(255, 255, 255, 0.85);
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+article:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Article images (posters) */
+article img {
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+article:hover img {
+  transform: scale(1.05);
+  opacity: 0.95;
+}
+
+/* Article text area */
+article h2 {
+  font-size: 1.1rem;
+  color: #1e3a8a;
+}
+
+article p {
+  color: #374151;
+  font-size: 0.9rem;
+}
+
+/* “Read” links */
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* =============================
+   Search Bar Styling
+   ============================= */
+form input[type="text"], 
+form input[name="q"], 
+form select {
+  padding: 0.6rem 0.8rem;
+  border-radius: 0.75rem;
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+  font-size: 0.95rem;
+}
+
+form button[type="submit"] {
+  background-color: #4f46e5;
+  color: white;
+  font-weight: 600;
+  padding: 0.6rem 1rem;
+  border-radius: 0.75rem;
+}
+
+form button[type="submit"]:hover {
+  background-color: #4338ca;
+}
+
+/* =============================
+   Hero / Poster Section
+   ============================= */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 18rem;
+  overflow: hidden;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.85);
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 1rem 2rem;
+  border-radius: 0.75rem;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}
+
+/* =============================
+   History Table
+   ============================= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+
+thead {
+  background-color: #f1f5f9;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+tbody tr:hover {
+  background-color: rgba(241, 245, 249, 0.5);
+}
+
+/* =============================
+   Animations
+   ============================= */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+article {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+/* Scrollbar styling for better aesthetics */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #4f46e5, #ec4899);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}

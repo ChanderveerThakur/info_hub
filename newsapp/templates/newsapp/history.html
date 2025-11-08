@@ -1,0 +1,22 @@
+{% extends 'newsapp/base.html' %}
+{% block content %}
+<h1 class="text-2xl font-bold mb-4">Search & visit history</h1>
+<table class="w-full bg-white/70 rounded-lg">
+  <thead>
+    <tr class="text-left">
+      <th class="p-2">When</th>
+      <th class="p-2">Query / Title</th>
+      <th class="p-2">Language</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for h in history %}
+      <tr class="border-t">
+        <td class="p-2">{{ h.timestamp }}</td>
+        <td class="p-2"><a href="{{ h.url }}" target="_blank">{{ h.title|default:h.query }}</a></td>
+        <td class="p-2">{{ h.language }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

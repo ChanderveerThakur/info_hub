@@ -1,0 +1,11 @@
+{% extends 'newsapp/base.html' %}
+{% block content %}
+<div class="max-w-md mx-auto mt-16 bg-white/60 rounded-2xl p-6 shadow-lg">
+  <h2 class="text-2xl font-bold mb-4">Create an account</h2>
+  <form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <button class="mt-2 px-4 py-2 rounded-xl bg-blue-600 text-white">Sign up</button>
+  </form>
+  <p class="mt-3">Already have an account? <a href="{% url 'myusernames:login' %}" class="text-blue-700">Login</a></p>
+</div>
+{% endblock %}
