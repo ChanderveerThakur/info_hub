@@ -24,8 +24,12 @@ load_dotenv(BASE_DIR / '.env')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-@4b-)xctxhr418@x2w0e&v$tt4&d@t)8#=no-w+i+epb%bxc^&"
 
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://infohub.onrender.com',  # ✅ your actual Render app URL
+]
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS =  ['*']
 
