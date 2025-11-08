@@ -1,4 +1,1 @@
-echo "web: gunicorn infohub_project.wsgi" > Procfile
-git add Procfile
-git commit -m "Added Procfile for Render"
-git push
+web: gunicorn infohub_project.wsgi
