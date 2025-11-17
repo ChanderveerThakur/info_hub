@@ -1,1 +1,1 @@
-web: gunicorn infohub_project.wsgi
+web: gunicorn yourproject.wsgi --workers 3 --bind 0.0.0.0:$PORT
